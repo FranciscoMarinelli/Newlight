@@ -1,0 +1,32 @@
+.titulo-index {
+    text-align: center;
+    .bebas-neue-regular {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+     color: rgb(104, 180, 210);
+}
+
+.main.index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    div {
+       border: solid 2px black;
+
+        h2 {
+            text-align: center;
+        }
+
+        img {
+            height: 350px;
+            width: 300px;
+        }
+
+        .precio-productos {
+            text-align: center;
+            color: rgb(126, 215, 126);
+        }
+    }
+}

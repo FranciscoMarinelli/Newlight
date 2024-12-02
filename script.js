@@ -12,7 +12,7 @@ function principal() {
     {id:9, nombre:"zapatillas adidas", precio:200000 , stock: 6, tipo:"calzado"},
    
   ]
-  
+  let pedirCategoria = categorias(produtos)
   let entrada = pedirNumero("ingrese: \n 1 - para agregar al carrito \n 2 - para filtrar por categoria \n 3 - para finalizar compra \n 0 - para salir ")
   let carrito = []
  while (entrada !== 0 ) {
@@ -21,12 +21,18 @@ function principal() {
     carrito =  agregarAlCarrito(carrito, productos, pedirId)
   } else if (entrada === 2) {
     
-    let categoriaPedida = pedirMensaje("ingrese el nombre de la categoria que desea agregar al carrito" ).toLowerCase()
+    let categoriaPedida = pedirMensaje("ingrese el nombre de la categoria que desea agregar al carrito" + "\n" + pedirCategoria ).toLowerCase()
     let tipoCategoria = filtrar(productos,categoria, categoriaPedida)
     let pedirId = pedirNumero("ingrese el id del producto" + "\n" + listaProductos(produtos))
     carrito =  agregarAlCarrito(carrito, productos, pedirId)
   } else if (entrada === 3) {
-   
+    if (carrito.length === 0) {
+      alert("Primero debe agregar productos al carrito")
+  } else {
+      let total = carrito.reduce((acumulador, producto) => acumulador + producto.subtotal, 0)
+      alert("Total de su compra $" + total + " - Gracias por elegirnos")
+      carrito = []
+  }
   } else {}
     
     entrada = pedirNumero("ingrese: \n 1 - para agregar al carrito \n 2 - para filtrar por categoria \n 3 - para finalizar compra \n 0 - para salir ")
